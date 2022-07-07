@@ -218,8 +218,8 @@ Response:
 }
 ```
 
-## Ranking
-### Leadboard by User (Hall of Fame Top 100)
+## Leaderboard
+### Ranking by User (Hall of Fame Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
 ```
@@ -267,7 +267,7 @@ Response:
       <SNIP>
 ```
 
-### Leadboard by Country (Top 100)
+### Ranking by Country (Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
 ```
@@ -318,7 +318,7 @@ Response:
       <SNIP>
 ```
 
-### Leadboard by Team (Top 100)
+### Ranking by Team (Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
 ```
@@ -364,7 +364,7 @@ Response:
       <SNIP>
 ```
 
-### Leadboard by University (Top 100)
+### Ranking by University (Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
 ```
