@@ -218,6 +218,198 @@ Response:
 }
 ```
 
+## Ranking
+### Leadboard by User (Hall of Fame Top 100)
+```bash
+curl --location --request GET https://www.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+   "status":true,
+   "data":[
+      {
+         "rank":1,
+         "points":2926,
+         "root_owns":221,
+         "user_owns":221,
+         "challenge_owns":221,
+         "root_bloods":25,
+         "user_bloods":14,
+         "challenge_bloods":5,
+         "fortress":40,
+         "endgame":21,
+         "id":13569,
+         "name":"xct",
+         "avatar_thumb":"\/storage\/avatars\/8c9faea377de064aa1c5333355e4ac14_thumb.png",
+         "country":"DE",
+         "level":"Omniscient",
+         "ranks_diff":0
+      },
+      {
+         "rank":2,
+         "points":2925,
+         "root_owns":163,
+         "user_owns":163,
+         "challenge_owns":298,
+         "root_bloods":1,
+         "user_bloods":1,
+         "challenge_bloods":7,
+         "fortress":40,
+         "endgame":21,
+         "id":275298,
+         "name":"m4cz",
+         "avatar_thumb":"\/storage\/avatars\/e02601e7f4cb3dce6f3744254dcc4f7d_thumb.png",
+         "country":"DE",
+         "level":"Omniscient",
+         "ranks_diff":0
+      },
+      <SNIP>
+```
+
+### Leadboard by Country (Top 100)
+```bash
+curl --location --request GET https://www.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+   "status":true,
+   "data":{
+      "country_name":"United States",
+      "rankings":[
+         {
+            "id":32580,
+            "points":2280,
+            "root_owns":106,
+            "user_owns":106,
+            "challenge_owns":128,
+            "root_bloods":0,
+            "user_bloods":0,
+            "challenge_bloods":0,
+            "fortress":40,
+            "endgame":21,
+            "name":"batemanmd",
+            "country":"US",
+            "level":"Guru",
+            "rank":1,
+            "ranks_diff":1,
+            "avatar_thumb":"\/storage\/avatars\/b5a1f343f331d0337143ec9e3b57322c_thumb.png"
+         },
+         {
+            "id":288520,
+            "points":1511,
+            "root_owns":170,
+            "user_owns":172,
+            "challenge_owns":64,
+            "root_bloods":0,
+            "user_bloods":0,
+            "challenge_bloods":0,
+            "fortress":40,
+            "endgame":21,
+            "name":"j88001",
+            "country":"US",
+            "level":"Guru",
+            "rank":2,
+            "ranks_diff":1,
+            "avatar_thumb":"\/storage\/avatars\/fd878cdaf97e82280ec6862c7d5f4c9f_thumb.png"
+         }
+      },
+      <SNIP>
+```
+
+### Leadboard by Team (Top 100)
+```bash
+curl --location --request GET https://www.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+   "status":true,
+   "data":[
+      {
+         "rank":1,
+         "points":3177,
+         "root_owns":289,
+         "user_owns":289,
+         "challenge_owns":276,
+         "root_bloods":24,
+         "user_bloods":29,
+         "challenge_bloods":45,
+         "fortress":40,
+         "endgame":21,
+         "id":1709,
+         "name":"WinBARs",
+         "avatar_thumb_url":"https:\/\/www.hackthebox.com\/storage\/teams\/52d080a3e172c33fd6886a37e7288491_thumb.jpg",
+         "country":"US",
+         "ranks_diff":0
+      },
+      {
+         "rank":2,
+         "points":3143,
+         "root_owns":272,
+         "user_owns":273,
+         "challenge_owns":298,
+         "root_bloods":84,
+         "user_bloods":66,
+         "challenge_bloods":26,
+         "fortress":40,
+         "endgame":21,
+         "id":1750,
+         "name":"TheATeam",
+         "avatar_thumb_url":"https:\/\/www.hackthebox.com\/storage\/teams\/6a5dfac4be1502501489fc0f5a24b667_thumb.jpg",
+         "country":"EU",
+         "ranks_diff":0
+      },
+      <SNIP>
+```
+
+### Leadboard by University (Top 100)
+```bash
+curl --location --request GET https://www.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+   "status":true,
+   "data":[
+      {
+         "rank":1,
+         "students":48,
+         "points":3050,
+         "root_owns":228,
+         "user_owns":231,
+         "challenge_owns":221,
+         "root_bloods":4,
+         "user_bloods":2,
+         "challenge_bloods":0,
+         "fortress":50,
+         "endgame":21,
+         "id":24,
+         "name":"WMG, University of Warwick",
+         "country":"GB",
+         "ranks_diff":0
+      },
+      {
+         "rank":2,
+         "students":9,
+         "points":2161,
+         "root_owns":171,
+         "user_owns":181,
+         "challenge_owns":145,
+         "root_bloods":0,
+         "user_bloods":0,
+         "challenge_bloods":0,
+         "fortress":50,
+         "endgame":0,
+         "id":299,
+         "name":"Epitech Toulouse",
+         "country":"FR",
+         "ranks_diff":0
+      },
+      <SNIP>
+```
+
 ## VPN Connection
 ### Switching to a specific VPN Server
 **Starting Labs**
