@@ -310,7 +310,7 @@ or
 ### List playable machines
 **Bash**
 ```bash
-/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
+curl --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -377,7 +377,7 @@ Response:
 ### List retired machines
 **Bash**
 ```bash
-/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
+curl --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -445,7 +445,7 @@ Response:
 ### List release-scheduled machines
 **Bash**
 ```bash
-/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
+curl --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -542,7 +542,7 @@ Response:
 ### List ToDo machines
 **Bash**
 ```bash
-/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
+curl --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -605,7 +605,7 @@ or
 Note: the adding and the removing to/from ToDo list is the same request.
 **Bash**
 ```bash
-/home/athena $ curl --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
+curl --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
