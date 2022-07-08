@@ -218,7 +218,7 @@ Response:
 }
 ```
 
-### Current Active Machine
+### Current active machine
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq
 ```
@@ -245,7 +245,7 @@ or
 }
 ```
 
-### List Active Machines
+### List playable machines
 ```bash
 /home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
 ```
@@ -307,7 +307,7 @@ Response:
 }
 ```
 
-### List Retired Machines
+### List retired machines
 ```bash
 /home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
 ```
@@ -370,7 +370,7 @@ Response:
 }
 ```
 
-### List Release-Scheduled Machines
+### List release-scheduled machines
 ```bash
 /home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
 ```
@@ -462,7 +462,7 @@ Response:
 }
 ```
 
-### List ToDo Machines
+### List ToDo machines
 ```bash
 /home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
 ```
@@ -519,7 +519,7 @@ or
 }
 ```
 
-### Add or Remove Machine to the ToDo list
+### Add or remove machine to/from the ToDo list
 Note: the adding and the removing to/from ToDo list is the same request.
 ```bash
 /home/athena $ curl --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
@@ -578,7 +578,7 @@ Response removing a machine from the ToDo list:
 ```
 
 ## Leaderboard
-### Ranking by User (Hall of Fame Top 100)
+### Ranking by user (Hall of Fame Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
 ```
@@ -626,7 +626,7 @@ Response:
       <SNIP>
 ```
 
-### Ranking by Country (Top 100)
+### Ranking by country (Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
 ```
@@ -677,7 +677,7 @@ Response:
       <SNIP>
 ```
 
-### Ranking by Team (Top 100)
+### Ranking by team (Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
 ```
@@ -723,7 +723,7 @@ Response:
       <SNIP>
 ```
 
-### Ranking by University (Top 100)
+### Ranking by university (Top 100)
 ```bash
 curl --location --request GET https://www.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
 ```
