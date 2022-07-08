@@ -4,9 +4,9 @@ The purpose of this project is to list all the Hack The Box v4 APIs and show exa
 Remember to set your API key in a variable like `$appkey`.
 
 The output of HTTP response is JSON. For accessing to a specific field of JSON structure:
-* Bash: use `jq`, for example, if you need to access to a nested field named `id` inside `info` structure of the machine profile, pipe `jq .<field-name>.<variable-name>`. For example:
+* Bash: use `jq`, for example, if you need to access to a nested field named `id` inside `info` structure of the machine profile, pipe `jq '.<field-name>.<variable-name>'`. For example:
   ```bash
-  curl --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq.profile.id
+  curl --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq '.profile.id'
   ```
 * PowerShell: delete the last `ConvertTo-Json` command, use enclose the entire command between brackets and type the filed you are interested. For example:
   ```powershell
