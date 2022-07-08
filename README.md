@@ -218,6 +218,365 @@ Response:
 }
 ```
 
+### Current Active Machine
+```bash
+curl --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+  "info": {
+    "id": 444,
+    "name": "RouterSpace",
+    "avatar": "/storage/avatars/4aee57cc02f0181b22f4ccd43775f7ac.png",
+    "expires_at": null,
+    "voting": false,
+    "voted": false,
+    "isSpawning": null,
+    "type": "Free",
+    "lab_server": "free_lab"
+  }
+}
+```
+or
+```json
+{
+  "info": null
+}
+```
+
+### List Active Machines
+```bash
+/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+  "message":[
+    {
+      "id": 480,
+      "name": "Faculty",
+      "os": "Linux",
+      "points": 30,
+      "static_points": 30,
+      "release": "2022-07-02T16:00:00.000000Z",
+      "user_owns_count": 430,
+      "root_owns_count": 382,
+      "authUserInUserOwns": null,
+      "authUserInRootOwns": null,
+      "isTodo": false,
+      "authUserHasReviewed": false,
+      "stars": "4.6",
+      "difficulty": 49,
+      "feedbackForChart": {
+        "counterCake": 4,
+        "counterVeryEasy": 4,
+        "counterEasy": 13,
+        "counterTooEasy": 28,
+        "counterMedium": 76,
+        "counterBitHard": 20,
+        "counterHard": 18,
+        "counterTooHard": 2,
+        "counterExHard": 0,
+        "counterBrainFuck": 1
+      },
+      "avatar": "/storage/avatars/8e579b42d4f769a16ca5dde6feae8df4.png",
+      "difficultyText": "Medium",
+      "playInfo": {
+        "isSpawned": null,
+        "isSpawning": null,
+        "isActive": false,
+        "active_player_count": null,
+        "expires_at": null
+      },
+      "free": true,
+      "maker": {
+        "id": 36994,
+        "name": "gbyolo",
+        "avatar": "/storage/avatars/24065805b9772892677a4c724c0a3e38.png",
+        "isRespected": false
+      },
+      "maker2": null,
+      "recommended": 0,
+      "sp_flag": 0,
+      "easy_month": 0,
+      "ip": "10.10.11.169"
+    },
+    <SNIP>
+  ]
+}
+```
+
+### List Retired Machines
+```bash
+/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+  "message":[
+    {
+      "id": 469,
+      "name": "BackendTwo",
+      "os": "Linux",
+      "points": 0,
+      "static_points": 30,
+      "release": "2022-05-02T07:00:05.000000Z",
+      "user_owns_count": 265,
+      "root_owns_count": 187,
+      "authUserInUserOwns": null,
+      "authUserInRootOwns": null,
+      "isTodo": false,
+      "authUserHasReviewed": false,
+      "stars": "5.0",
+      "difficulty": 45,
+      "feedbackForChart": {
+        "counterCake": 15,
+        "counterVeryEasy": 17,
+        "counterEasy": 48,
+        "counterTooEasy": 55,
+        "counterMedium": 84,
+        "counterBitHard": 41,
+        "counterHard": 18,
+        "counterTooHard": 7,
+        "counterExHard": 3,
+        "counterBrainFuck": 4
+      },
+      "avatar": "/storage/avatars/34306c6f7380f2c2c86b18b0be502326.png",
+      "difficultyText": "Medium",
+      "playInfo": {
+        "isSpawned": null,
+        "isSpawning": null,
+        "isActive": false,
+        "active_player_count": null,
+        "expires_at": null
+      },
+      "free": false,
+      "maker": {
+        "id": 3769,
+        "name": "ippsec",
+        "avatar": "/storage/avatars/ebf175f982582aae191f6f34d7bce8ec.png",
+        "isRespected": false
+      },
+      "maker2": null,
+      "recommended": 0,
+      "sp_flag": 0,
+      "easy_month": 0,
+      "ip": "10.10.11.162",
+      "tags": []
+    },
+    <SNIP>
+  ]
+}
+```
+
+### List Release-Scheduled Machines
+```bash
+/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+  "data": [
+    {
+      "id": 481,
+      "name": "RedPanda",
+      "os": "Linux",
+      "avatar": "/storage/avatars/0ba23d9bbfea967268e284e85e0837ff.png",
+      "release": "2022-07-09T19:00:00.000000Z",
+      "difficulty": 25,
+      "difficulty_text": "Easy",
+      "firstCreator": [
+        {
+          "id": 25507,
+          "name": "Woodenk",
+          "avatar": "/storage/avatars/f57fba21af53f3bf45e0163352c7028e.png"
+        }
+      ],
+      "coCreators": [],
+      "retiring": {
+        "difficulty_text": "Easy",
+        "avatar": "/storage/avatars/4aee57cc02f0181b22f4ccd43775f7ac.png",
+        "os": "Linux",
+        "name": "RouterSpace",
+        "id": 444
+      }
+    },
+    {
+      "id": 482,
+      "name": "Extension",
+      "os": "Linux",
+      "avatar": "/storage/avatars/c7a8b48f7e95745413c32fcb99cc1f1a.png",
+      "release": "2022-07-16T19:00:00.000000Z",
+      "difficulty": 75,
+      "difficulty_text": "Hard",
+      "firstCreator": [
+        {
+          "id": 476556,
+          "name": "irogir",
+          "avatar": "/storage/avatars/6f0ae07db6e33c60145bfdccb66aa4d7.png"
+        }
+      ],
+      "coCreators": [],
+      "retiring": {
+        "difficulty_text": "Hard",
+        "avatar": "/storage/avatars/84ab22908d5dd51ab6bd64f99f81b7be.png",
+        "os": "Windows",
+        "name": "Acute",
+        "id": 438
+      }
+    }
+  ],
+  "links": {
+    "first": "https://www.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
+    "last": "https://www.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://www.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://www.hackthebox.com/api/v4/machine/unreleased",
+    "per_page": 15,
+    "to": 2,
+    "total": 2
+  }
+}
+```
+
+### List ToDo Machines
+```bash
+/home/athena $ curl --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
+```
+Response:
+```json
+{
+  "info": [
+    {
+      "id": 480,
+      "name": "Faculty",
+      "os": "Linux",
+      "points": 30,
+      "static_points": 30,
+      "authUserInUserOwns": null,
+      "authUserInRootOwns": null,
+      "authUserFirstUserTime": null,
+      "authUserFirstRootTime": null,
+      "stars": "4.6",
+      "difficulty": 49,
+      "feedbackForChart": {
+        "counterCake": 4,
+        "counterVeryEasy": 4,
+        "counterEasy": 13,
+        "counterTooEasy": 28,
+        "counterMedium": 76,
+        "counterBitHard": 20,
+        "counterHard": 18,
+        "counterTooHard": 2,
+        "counterExHard": 0,
+        "counterBrainFuck": 1
+      },
+      "avatar": "/storage/avatars/8e579b42d4f769a16ca5dde6feae8df4.png",
+      "difficultyText": "Medium",
+      "playInfo": {
+        "isSpawned": null,
+        "isSpawning": null,
+        "isActive": false,
+        "active_player_count": null,
+        "expires_at": null
+      },
+      "free": true,
+      "release": "2022-07-02T16:00:00.000000Z",
+      "user_owns_count": 431,
+      "root_owns_count": 382,
+      "recommended": 0
+    }
+  ]
+}
+```
+or
+```json
+{
+  "info": []
+}
+```
+
+### Add or Remove Machine to the ToDo list
+Note: the adding and the removing to/from ToDo list is the same request.
+```bash
+/home/athena $ curl --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
+```
+Response adding a machine to the ToDo list:
+```json
+{
+   "info":[
+      {
+         "id":480,
+         "name":"Faculty",
+         "os":"Linux",
+         "points":30,
+         "static_points":30,
+         "authUserInUserOwns":null,
+         "authUserInRootOwns":null,
+         "authUserFirstUserTime":null,
+         "authUserFirstRootTime":null,
+         "stars":"4.6",
+         "difficulty":49,
+         "feedbackForChart":{
+            "counterCake":4,
+            "counterVeryEasy":4,
+            "counterEasy":13,
+            "counterTooEasy":28,
+            "counterMedium":76,
+            "counterBitHard":20,
+            "counterHard":18,
+            "counterTooHard":2,
+            "counterExHard":0,
+            "counterBrainFuck":1
+         },
+         "avatar":"\/storage\/avatars\/8e579b42d4f769a16ca5dde6feae8df4.png",
+         "difficultyText":"Medium",
+         "playInfo":{
+            "isSpawned":null,
+            "isSpawning":null,
+            "isActive":false,
+            "active_player_count":null,
+            "expires_at":null
+         },
+         "free":true,
+         "release":"2022-07-02T16:00:00.000000Z",
+         "user_owns_count":431,
+         "root_owns_count":383,
+         "recommended":0
+      }
+   ]
+}
+```
+Response removing a machine from the ToDo list:
+```json
+{
+  "info": []
+}
+```
+
 ## Leaderboard
 ### Ranking by User (Hall of Fame Top 100)
 ```bash
