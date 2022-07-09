@@ -251,6 +251,13 @@ or
   "status": 400
 }
 ```
+or
+```bash
+{
+  "message": "RouterSpace root is already owned.",
+  "status": 400
+}
+```
 **PowerShell**
 ```
 Invoke-WebRequest : The remote server returned an error: (400) Bad Request.
