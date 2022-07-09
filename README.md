@@ -6,7 +6,7 @@ Remember to set your API key in a variable like `$appkey`.
 The output of HTTP response is JSON. For accessing to a specific field of JSON structure:
 * Bash: use `jq`, for example, if you need to access to a nested field named `id` inside `info` structure of the machine profile, pipe `jq '.<field-name>.<variable-name>'`. For example:
   ```bash
-  curl --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq '.profile.id'
+  curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq '.profile.id'
   ```
 * PowerShell: delete the last `ConvertTo-Json` command, use enclose the entire command between brackets and type the filed you are interested. For example:
   ```powershell
@@ -16,7 +16,7 @@ The output of HTTP response is JSON. For accessing to a specific field of JSON s
 ### Get basic information of a user
 **Bash**
 ```bash
-curl --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -67,7 +67,7 @@ Response:
 By name:
 **Bash**
 ```bash
-curl --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/RouterSpace" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/RouterSpace" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -76,7 +76,7 @@ Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/pr
 By ID:
 **Bash**
 ```bash
-curl --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/444" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/444" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -166,7 +166,7 @@ Response:
 ### Spawn a machine
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/machine/play/444" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/444" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -181,7 +181,7 @@ Response:
 ### Stop the active machine
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -197,7 +197,7 @@ Response:
 The machine must be active on your session.
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/vm/reset" --data '{"machine_id":478}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/vm/reset" --data '{"machine_id":478}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -230,7 +230,7 @@ or
 The machine must be active on your session (maybe).
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/machine/own" --data '{"flag":"your-flag","id":480,"difficulty":50}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/own" --data '{"flag":"your-flag","id":480,"difficulty":50}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -271,7 +271,7 @@ At line:1 char:1
 ### Submit a machine review
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/machine/review" --data '{"id":444,"stars":5,"headline":"Very funny machine","review":"It is not so immediate but it is very funny!"}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/review" --data '{"id":444,"stars":5,"headline":"Very funny machine","review":"It is not so immediate but it is very funny!"}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -292,7 +292,7 @@ Response:
 ### Current active machine
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -324,7 +324,7 @@ or
 ### List playable machines
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -391,7 +391,7 @@ Response:
 ### List retired machines
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -459,7 +459,7 @@ Response:
 ### List release-scheduled machines
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -556,7 +556,7 @@ Response:
 ### List ToDo machines
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -619,7 +619,7 @@ or
 Note: the adding and the removing to/from ToDo list is the same request.
 **Bash**
 ```bash
-curl --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -682,7 +682,7 @@ Response removing a machine from the ToDo list:
 ### Ranking by user (Hall of Fame Top 100)
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -735,7 +735,7 @@ Response:
 ### Ranking by country (Top 100)
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -791,7 +791,7 @@ Response:
 ### Ranking by team (Top 100)
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -842,7 +842,7 @@ Response:
 ### Ranking by university (Top 100)
 **Bash**
 ```bash
-curl --location --request GET https://www.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -913,7 +913,7 @@ Response:
 Example: switch to the EU Free 1 server
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/1" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/1" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
@@ -937,8 +937,8 @@ Response:
 Example: get the OPVN file of US Free 1. Before getting it, you need to switch to US Free 1 VPN server
 **Bash**
 ```bash
-curl --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/113" -H "Authorization: Bearer $appkey" | jq
-curl --location --request GET "https://www.hackthebox.com/api/v4/access/ovpnfile/113/0" -H "Authorization: Bearer $appkey" -o lab-vpn.ovpn
+curl -s --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/113" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://www.hackthebox.com/api/v4/access/ovpnfile/113/0" -H "Authorization: Bearer $appkey" -o lab-vpn.ovpn
 ```
 **PowerShell**
 ```powershell
@@ -954,7 +954,7 @@ read machine-name
 
 api="<your-api-key>"
 
-machine-id=$(curl --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine-name" -H "Authorization: Bearer $api" | jq .info.id)
+machine-id=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine-name" -H "Authorization: Bearer $api" | jq .info.id)
 
 echo "Which action to take on machine?"
 echo "1 - Start Machine"
@@ -962,8 +962,8 @@ echo "2 - Stop Machine"
 echo "3 - Quit"
 read action;
 case $action in
-  1) echo "Starting machine...";echo "$machineid";curl --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine-id" -H "Authorization: Bearer $api";;
-  2) echo "Stop machine...";curl --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $api";;
+  1) echo "Starting machine...";echo "$machineid";curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine-id" -H "Authorization: Bearer $api";;
+  2) echo "Stop machine...";curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $api";;
   3) echo "Quitting...";exit 0;;
   *) echo "This action is not available. Please choose a different one.";; 
 esac
