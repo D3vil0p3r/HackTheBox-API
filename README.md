@@ -940,7 +940,7 @@ read machine-name
 
 api="<your-api-key>"
 
-machine-id=$(curl --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine-name "Authorization: Bearer $api" | jq .info.id)
+machine-id=$(curl --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine-name" -H "Authorization: Bearer $api" | jq .info.id)
 
 echo "Which action to take on machine?"
 echo "1 - Start Machine"
