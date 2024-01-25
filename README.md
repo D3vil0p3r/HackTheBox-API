@@ -6,21 +6,21 @@ Remember to set your API key in a variable like `$appkey`.
 The output of HTTP response is JSON. For accessing to a specific field of JSON structure:
 * Bash: use `jq`, for example, if you need to access to a nested field named `id` inside `info` structure of the machine profile, pipe `jq '.<field-name>.<variable-name>'`. For example:
   ```bash
-  curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq '.profile.id'
+  curl -s --location --request GET "https://labs.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq '.profile.id'
   ```
 * PowerShell: delete the last `ConvertTo-Json` command, use enclose the entire command between brackets and type the filed you are interested. For example:
   ```powershell
-  (Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json).profile.id
+  (Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/user/profile/basic/651314" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json).profile.id
   ```
 ## User
 ### Get basic information of a user
 **Bash**
 ```bash
-curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://labs.hackthebox.com/api/v4/user/profile/basic/651314" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/user/profile/basic/651314" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/user/profile/basic/651314" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -67,20 +67,20 @@ Response:
 By name:
 **Bash**
 ```bash
-curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/RouterSpace" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://labs.hackthebox.com/api/v4/machine/profile/RouterSpace" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/profile/RouterSpace" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/profile/RouterSpace" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 By ID:
 **Bash**
 ```bash
-curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/444" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://labs.hackthebox.com/api/v4/machine/profile/444" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/profile/444" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/profile/444" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -166,11 +166,11 @@ Response:
 ### Spawn a machine
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/444" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/machine/play/444" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/machine/play/444" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/machine/play/444" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -181,11 +181,11 @@ Response:
 ### Stop the active machine
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/machine/stop" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/machine/stop" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -197,11 +197,11 @@ Response:
 The machine must be active on your session.
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/vm/reset" --data '{"machine_id":478}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/vm/reset" --data '{"machine_id":478}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/vm/reset" -Body @{"machine_id"="478"} -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/vm/reset" -Body @{"machine_id"="478"} -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -230,11 +230,11 @@ or
 The machine must be active on your session (maybe).
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/own" --data '{"flag":"your-flag","id":480,"difficulty":50}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/machine/own" --data '{"flag":"your-flag","id":480,"difficulty":50}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/machine/own" -Body @{"flag"="your-flag";"id"="480";"difficulty"="50"} -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/machine/own" -Body @{"flag"="your-flag";"id"="480";"difficulty"="50"} -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 **Bash**
@@ -262,7 +262,7 @@ or
 ```
 Invoke-WebRequest : The remote server returned an error: (400) Bad Request.
 At line:1 char:1
-+ Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v ...
++ Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
     + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
@@ -271,11 +271,11 @@ At line:1 char:1
 ### Submit a machine review
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/review" --data '{"id":444,"stars":5,"headline":"Very funny machine","review":"It is not so immediate but it is very funny!"}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/machine/review" --data '{"id":444,"stars":5,"headline":"Very funny machine","review":"It is not so immediate but it is very funny!"}' -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/machine/review" -Body @{"id"="444";"stars"="5";"headline"="Very funny machine";"review"="It is not so immediate but it is very funny!"} -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/machine/review" -Body @{"id"="444";"stars"="5";"headline"="Very funny machine";"review"="It is not so immediate but it is very funny!"} -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -292,11 +292,11 @@ Response:
 ### Current active machine
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/active" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/active" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -324,11 +324,11 @@ or
 ### List playable machines
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/machine/list -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/list" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/list" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -391,11 +391,11 @@ Response:
 ### List retired machines
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/list/retired" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/list/retired" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -459,11 +459,11 @@ Response:
 ### List release-scheduled machines
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/machine/unreleased -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/unreleased" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/unreleased" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -519,8 +519,8 @@ Response:
     }
   ],
   "links": {
-    "first": "https://www.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
-    "last": "https://www.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
+    "first": "https://labs.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
+    "last": "https://labs.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
     "prev": null,
     "next": null
   },
@@ -535,7 +535,7 @@ Response:
         "active": false
       },
       {
-        "url": "https://www.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
+        "url": "https://labs.hackthebox.com/api/v4/machine/unreleased?unreleased=1&page=1",
         "label": "1",
         "active": true
       },
@@ -545,7 +545,7 @@ Response:
         "active": false
       }
     ],
-    "path": "https://www.hackthebox.com/api/v4/machine/unreleased",
+    "path": "https://labs.hackthebox.com/api/v4/machine/unreleased",
     "per_page": 15,
     "to": 2,
     "total": 2
@@ -556,11 +556,11 @@ Response:
 ### List ToDo machines
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/machine/todo -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/machine/todo" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/machine/todo" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -619,11 +619,11 @@ or
 Note: the adding and the removing to/from ToDo list is the same request.
 **Bash**
 ```bash
-curl -s --location --request POST https://www.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST https://labs.hackthebox.com/api/v4/machine/todo/update/480 -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/machine/todo/update/480" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/machine/todo/update/480" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response adding a machine to the ToDo list:
 ```json
@@ -682,11 +682,11 @@ Response removing a machine from the ToDo list:
 ### Ranking by user (Hall of Fame Top 100)
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/rankings/users -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/rankings/users" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/rankings/users" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -735,11 +735,11 @@ Response:
 ### Ranking by country (Top 100)
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/rankings/country/US/members -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/rankings/country/US/members" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/rankings/country/US/members" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -791,11 +791,11 @@ Response:
 ### Ranking by team (Top 100)
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/rankings/teams -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/rankings/teams" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/rankings/teams" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -842,11 +842,11 @@ Response:
 ### Ranking by university (Top 100)
 **Bash**
 ```bash
-curl -s --location --request GET https://www.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET https://labs.hackthebox.com/api/v4/rankings/universities -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/rankings/universities" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/rankings/universities" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```json
@@ -913,11 +913,11 @@ Response:
 Example: switch to the EU Free 1 server
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/1" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/connections/servers/switch/1" -H "Authorization: Bearer $appkey" | jq
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/connections/servers/switch/1" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/connections/servers/switch/1" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
 ```
 Response:
 ```
@@ -937,13 +937,13 @@ Response:
 Example: get the OPVN file of US Free 1. Before getting it, you need to switch to US Free 1 VPN server
 **Bash**
 ```bash
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/113" -H "Authorization: Bearer $appkey" | jq
-curl -s --location --request GET "https://www.hackthebox.com/api/v4/access/ovpnfile/113/0" -H "Authorization: Bearer $appkey" -o lab-vpn.ovpn
+curl -s --location --request POST "https://labs.hackthebox.com/api/v4/connections/servers/switch/113" -H "Authorization: Bearer $appkey" | jq
+curl -s --location --request GET "https://labs.hackthebox.com/api/v4/access/ovpnfile/113/0" -H "Authorization: Bearer $appkey" -o lab-vpn.ovpn
 ```
 **PowerShell**
 ```powershell
-Invoke-WebRequest -Method POST -Uri "https://www.hackthebox.com/api/v4/connections/servers/switch/113" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
-Invoke-WebRequest -Method GET -Uri "https://www.hackthebox.com/api/v4/access/ovpnfile/113/0" -Headers @{"Authorization" = "Bearer $appkey"} -OutFile lab-vpn.ovpn
+Invoke-WebRequest -Method POST -Uri "https://labs.hackthebox.com/api/v4/connections/servers/switch/113" -Headers @{"Authorization" = "Bearer $appkey"} | Select-Object -Expand Content | ConvertFrom-Json | ConvertTo-Json
+Invoke-WebRequest -Method GET -Uri "https://labs.hackthebox.com/api/v4/access/ovpnfile/113/0" -Headers @{"Authorization" = "Bearer $appkey"} -OutFile lab-vpn.ovpn
 ```
 ## Example Bash Script
 ```bash
@@ -954,7 +954,7 @@ read machine-name
 
 api="<your-api-key>"
 
-machine-id=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine-name" -H "Authorization: Bearer $api" | jq .info.id)
+machine-id=$(curl -s --location --request GET "https://labs.hackthebox.com/api/v4/machine/profile/$machine-name" -H "Authorization: Bearer $api" | jq .info.id)
 
 echo "Which action to take on machine?"
 echo "1 - Start Machine"
@@ -962,8 +962,8 @@ echo "2 - Stop Machine"
 echo "3 - Quit"
 read action;
 case $action in
-  1) echo "Starting machine...";echo "$machineid";curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine-id" -H "Authorization: Bearer $api";;
-  2) echo "Stop machine...";curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $api";;
+  1) echo "Starting machine...";echo "$machineid";curl -s --location --request POST "https://labs.hackthebox.com/api/v4/machine/play/$machine-id" -H "Authorization: Bearer $api";;
+  2) echo "Stop machine...";curl -s --location --request POST "https://labs.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $api";;
   3) echo "Quitting...";exit 0;;
   *) echo "This action is not available. Please choose a different one.";; 
 esac
